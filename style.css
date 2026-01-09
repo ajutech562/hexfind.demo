@@ -6,132 +6,147 @@
 }
 
 body {
-    background-color: #f2f4f6;
-    color: #222;
+    background: #eaeaea;
+    padding: 30px 0;
 }
 
-.container {
-    width: 100%;
-    max-width: 1000px;
+.container{
+    max-width: 900px;
     margin: auto;
-    padding: 20px;
+    display: grid;
+    gap: 30px;
 }
+
 
 .card {
-    background-color: #ffffffd6;
-    border: 1px solid #cccccc;
-    padding: 25px;
+    border: 1px solid #999;
+    padding: 30px;
+    background: #fff;
+}
+
+
+.front-card {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    position: relative;
 }
 
-.company {
-    text-align: center;
+.left {
     width: 35%;
+    text-align: center;
 }
 
-.logo {
-    width: 80px;
-    height: 80px;
+.logo-circle {
+    width: 90px;
+    height: 90px;
     border: 2px solid #0a2540;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
-    margin: 0 auto 10px;
-    color: #07223c;
-
+    color: #0a2540;
+    margin: auto;
 }
 
-.company h1 {
+.left h1 {
+    margin-top: 10px;
     letter-spacing: 2px;
 }
 
-.company p {
+.sub {
     font-size: 14px;
     color: #555;
 }
 
-.line {
+.vertical-line {
     width: 1px;
     height: 180px;
-    background-color: #bbbbbb;
+    background: #999;
+    margin: 0 25px;
 }
 
-.details {
+.right {
     width: 55%;
 }
 
-.details h3 {
+.right h3 {
     margin-bottom: 4px;
 }
 
-.details span {
+.role {
     font-size: 14px;
     color: #555;
+    margin-bottom: 10px;
 }
 
-.details p {
+.right p {
     margin-top: 8px;
-    font-size: 15px;
 }
 
-
-.quote {
+.cen-line {
+    width: 100%;
     text-align: center;
-    margin: 20px 0;
+    margin-top: 25px;
     font-style: italic;
 }
 
 
-.services {
-    background-color: #061f3a;
-    color: #ffffff;
-    padding: 50px 20px;
+.back-card {
+    background: #061f3a;
+    color: #fff;
 }
 
-.services h2 {
-    text-align: center;
-    margin-bottom: 20px;
+.back-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
-.services h2 span {
-    font-size: 16px;
-    font-weight: normal;
+.logo-circle.white {
+    border-color: #fff;
+    color: #fff;
 }
 
+.back-header h2 {
+    letter-spacing: 2px;
+}
+
+.back-header span {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.services h4 {
+    margin-bottom: 10px;
+}
 .services ul {
-    max-width: 500px;
-    margin: auto;
+    list-style: disc;
+    padding-left: 20px;
+}
+.services li {
+    margin-bottom: 6px;
 }
 
-.services li {
-    margin-bottom: 8px;
-}
-.services h4{
-margin-left:210px;
-margin-bottom: 10;
-}
 
 @media (max-width: 768px) {
-    .card {
+
+    .front-card {
         flex-direction: column;
         text-align: center;
     }
 
-    .line {
-        display: none;
-    }
-
-    .company,
-    .details {
+    .left, .right {
         width: 100%;
     }
-
-    .details {
-        margin-top: 20px;
+    .vertical-line {
+        display: none;
+    }
+.back-header {
+        flex-direction: column;
+        text-align: center;
     }
 }

@@ -17,9 +17,8 @@ body {
     padding: 20px;
 }
 
-/* Card */
 .card {
-    background-color: #ffffff;
+    background-color: #ffffffd6;
     border: 1px solid #cccccc;
     padding: 25px;
     display: flex;
@@ -43,7 +42,8 @@ body {
     font-size: 28px;
     font-weight: bold;
     margin: 0 auto 10px;
-    color: #0a2540;
+    color: #07223c;
+
 }
 
 .company h1 {
@@ -90,7 +90,7 @@ body {
 .services {
     background-color: #061f3a;
     color: #ffffff;
-    padding: 40px 20px;
+    padding: 50px 20px;
 }
 
 .services h2 {
@@ -111,7 +111,10 @@ body {
 .services li {
     margin-bottom: 8px;
 }
-
+.services h4{
+margin-left:210px;
+margin-bottom: 10;
+}
 
 @media (max-width: 768px) {
     .card {

@@ -1,44 +1,64 @@
-
+/* =========================
+   SCROLL TO TOP BUTTON
+========================= */
 const topBtn = document.getElementById("topBtn");
 
-window.addEventListener("scroll", () => {
-  topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-});
+function handleScrollTopBtn() {
+  if (!topBtn) return;
 
-topBtn.addEventListener("click", () => {
+  const visible = window.scrollY > 300;
+  topBtn.style.opacity = visible ? "1" : "0";
+  topBtn.style.pointerEvents = visible ? "auto" : "none";
+}
+
+window.addEventListener("scroll", handleScrollTopBtn, { passive: true });
+
+topBtn?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-
-
-const reveals = document.querySelectorAll(".reveal");
+/* =========================
+   REVEAL ON SCROLL (SMOOTH)
+========================= */
+const revealElements = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
+  revealElements.forEach(el => {
+    if (el.classList.contains("active")) return;
+
+    if (el.getBoundingClientRect().top < window.innerHeight - 60) {
       el.classList.add("active");
     }
   });
 }
 
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
+window.addEventListener("scroll", revealOnScroll, { passive: true });
+window.addEventListener("load", revealOnScroll);
 
-
+/* =========================
+   GALLERY SLIDER (SMOOTH)
+========================= */
 const slides = document.querySelectorAll(".gallery-slide");
 const dots = document.querySelectorAll(".dot");
 let currentSlide = 0;
 
-function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove("active"));
-  dots.forEach(dot => dot.classList.remove("active"));
+function updateSlider(index) {
+  slides.forEach((slide, i) =>
+    slide.classList.toggle("active", i === index)
+  );
 
-  slides[index].classList.add("active");
-  dots[index].classList.add("active");
+  dots.forEach((dot, i) =>
+    dot.classList.toggle("active", i === index)
+  );
 }
 
+// Initial state
+if (slides.length) updateSlider(currentSlide);
+
+// Auto play
 setInterval(() => {
+  if (!slides.length) return;
+
   currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}, 3000); 
+  updateSlider(currentSlide);
+}, 3500);

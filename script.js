@@ -1,6 +1,4 @@
-/* =========================
-   Scroll to Top Button
-========================= */
+
 const topBtn = document.getElementById("topBtn");
 
 window.addEventListener("scroll", () => {
@@ -12,9 +10,7 @@ topBtn.addEventListener("click", () => {
 });
 
 
-/* =========================
-   Reveal on Scroll
-========================= */
+
 const reveals = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
@@ -30,10 +26,6 @@ window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
 
 
-/* =========================
-   Gallery Auto Slider
-   (4 images + dots)
-========================= */
 const slides = document.querySelectorAll(".gallery-slide");
 const dots = document.querySelectorAll(".dot");
 let currentSlide = 0;
@@ -49,4 +41,4 @@ function showSlide(index) {
 setInterval(() => {
   currentSlide = (currentSlide + 1) % slides.length;
   showSlide(currentSlide);
-}, 3000); // auto change every 3 seconds
+}, 3000); 
